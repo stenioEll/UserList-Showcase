@@ -58,7 +58,7 @@ function App() {
          `}
       >
         <header className='mb-4'>
-          <h1 className='font-bold uppercase'>User List</h1>
+          <h1 className='font-bold uppercase text-gray-800'>User List</h1>
         </header>
         <div className='overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 '>
           <ul className="max-h-80">
@@ -77,11 +77,10 @@ function App() {
                   mr-2
                   cursor-pointer
                   hover:bg-gradient-to-r 
-                  hover:from-slate-900   
-                  hover:via-purple-900 
-                  hover:to-slate-900 
-                  
-                  
+                hover:from-slate-900   
+                hover:via-purple-900 
+                hover:to-slate-900 
+
                 `}>
                   <FontAwesomeIcon icon={faUser} className="mr-4" />    
                   {user.name}
