@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;700;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.overflow-y-auto::-webkit-scrollbar {
+    width: 4px; /* Largura da barra de rolagem */
+  }
+  
+  .overflow-y-auto::-webkit-scrollbar-thumb {
+    background-color: #bdbdbd; /* Cor do preenchimento da barra de rolagem */
+    border-radius: 4px; /* Raio de borda da barra de rolagem */
+    margin-left: 5px;
+  }
+  
+  .overflow-y-auto::-webkit-scrollbar-track {
+    background-color: transparent; /* Fundo transparente da área da barra de rolagem */
+  }
