@@ -5,6 +5,8 @@ import {fetchUsers } from './actions';
 import { Oval } from 'react-loader-spinner';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import Lottie from "lottie-react"
+import animationData from './assets/error.json'
 
 
 
@@ -16,18 +18,9 @@ function App() {
     dispatch(fetchUsers());
   }, [dispatch]);
 
-  if (loading) {
-    return (
-      <div class= "flex flex-col items-center justify-center h-full w-full">
-        <Oval color="#00BFFF" height={80} width={80} />
-        <h1 className='text-lg font-regular'>Carregando dados...</h1>
-      </div> 
-    )
-  }
+  
 
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+ 
 
   return (
     <div className 
@@ -48,10 +41,9 @@ function App() {
             h-96
             max-h-screen-80 
             overflow-y-auto
-             
+
             flex 
-            flex-col 
-            justify-center 
+            flex-col  
             items-center 
             rounded
             shadow   
@@ -60,6 +52,20 @@ function App() {
         <header className='mb-4  bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 flex justify-center items-center w-full h-12 p-4 mb-4'>
           <h1 className='font-montserrat font-bold uppercase text-gray-200 text-sm'>User List</h1>
         </header>
+        {loading && (
+          <div className="flex flex-col items-center justify-center mt-20">
+            <Oval color="purple" secondaryColor="gray" height={80} width={80} />
+            <h1 className="text-lg font-regular text-gray-800">Carregando dados...</h1>
+          </div>
+        )}
+        {error && (
+          <div className="flex flex-col items-center justify-center">
+            <Lottie animationData={animationData}/>
+            <h1 className="text-lg font-regular text-red-500">Ocorreu um erro ao carregar os dados.</h1>
+            <p>{error}</p>
+          </div>
+        )}
+        {!loading && !error && (
         <div className='overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 p-4'>
           <ul className="max-h-80">
             {users.map((user, index) => (
@@ -86,6 +92,7 @@ function App() {
             ))}
           </ul>
         </div>
+        )}
       </div>
     </div>
   );
