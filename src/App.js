@@ -43,12 +43,12 @@ function App() {
     >
       <div className 
         = {`
-          bg-white
+          bg-gray-200
             w-96 
             h-96
             max-h-screen-80 
             overflow-y-auto
-            p-4 
+             
             flex 
             flex-col 
             justify-center 
@@ -57,18 +57,16 @@ function App() {
             shadow   
          `}
       >
-        <header className='mb-4'>
-          <h1 className='font-bold uppercase text-gray-800'>User List</h1>
+        <header className='mb-4  bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 flex justify-center items-center w-full h-12 p-4 mb-4'>
+          <h1 className='font-montserrat font-bold uppercase text-gray-200 text-sm'>User List</h1>
         </header>
-        <div className='overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 '>
+        <div className='overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 p-4'>
           <ul className="max-h-80">
             {users.map((user, index) => (
               <li key={user.id} 
                 className=
                 {`
-                  bg-gradient-to-r 
-                from-gray-700 
-                via-gray-900 to-black 
+                  bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-700 via-blue-800 to-gray-900 
                   mb-4 
                   p-4 
                   rounded 
